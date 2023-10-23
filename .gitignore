@@ -1,0 +1,17 @@
+# Django project .gitignore
+
+# General
+*.pyc
+__pycache__/
+.cache/
+.pytest/
+.env
+.vscode/
+
+# Django
+local_settings.py
+media/
+static/
+migrations/
+db.sqlite3
+

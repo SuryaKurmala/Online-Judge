@@ -1,0 +1,41 @@
+{% extends 'OJ/main.html' %}
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius:10px !important">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">{{ settings.APP_NAME }}</a>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      {% url 'problems' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'problems' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Problems</a>
+      </li>
+
+      {% url 'all_submissions' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'all_submissions' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Submissions</a>
+      </li>
+
+      {% url 'account' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'account' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Account</a>
+      </li>
+
+      {% url 'register' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'register' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Register</a>
+      </li>
+
+      {% url 'login' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'login' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Login</a>
+      </li>
+
+      {% url 'logout' as xyz %}
+      <li class="nav-item">
+        <a href="{% url 'logout' %}" class="nav-link {% if request.get_full_path == xyz %}active{% endif %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}

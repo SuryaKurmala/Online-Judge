@@ -1,0 +1,79 @@
+{% extends 'OJ/navbar.html' %}
+
+{% block content %}
+<style>
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50%;
+  }
+  
+  .problem-description,
+  .problem-code-editor {
+    padding: 15px;
+  }
+  .problem-description {
+    float: left;
+    height: 650px;
+    overflow: auto;
+  }
+  
+  .problem-code-editor {
+    float: left;
+  }
+</style>
+<div class="row">
+  <div class="col-md-6">
+    <div class="problem-description">
+      <h4>{{problem.name}}</h4>
+      <b>Difficulty:</b>
+      {% if problem.difficulty == "Easy" %}
+        <b style="color: darkgoldenrod;">{{problem.difficulty}}</b>
+      {% elif problem.difficulty == "Medium" %}
+        <b style="color: darkblue;">{{problem.difficulty}}</b>
+      {% else %}
+        <b style="color: red;">{{problem.difficulty}}</b>
+      {% endif %}
+
+      {% autoescape off %}
+        <p>{{problem.description}}</p>
+      {% endautoescape %}
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="problem-code-editor">
+      <form action="{% url 'verdict' problem.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+          <div>
+            <div class="problem-difficulty">
+              <label><b>Select Language</b></label>
+              <select name="language" id="language" class="form-select" onchange="update_editor()">
+                <option value="C++">C++</option>
+                <option value="C">C</option>
+                <option value="Python3">Python3</option>
+                <option value="Python2">Python2</option>
+                <option value="Java">Java</option>
+              </select>
+            </div>
+          </div> 
+          <br><br><br><br>
+          <b>WARNING:</b> If using Java, use <b>Main</b> as the class name.
+          <div id="editor-div" style="overflow: auto;">
+            <textarea data-editor="terminal" name="user_code" cols="85" rows="20" id="editor"></textarea>
+          </div>
+          <br>
+          <div class="submit-button">
+            <button id="submit" type="submit" name="submit"">Submit</button>
+          </div>
+          <br>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

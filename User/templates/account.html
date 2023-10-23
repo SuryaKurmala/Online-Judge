@@ -1,0 +1,57 @@
+{% extends 'OJ/navbar.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+  <title>Account</title>
+  <style>
+    .account-page {
+        padding: 20px;
+      }
+      
+      .account-page h1 {
+        margin-top: 0;
+      }
+      
+      .account-page p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      
+      .account-page a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      
+      .account-page a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h1>Account</h1>
+          </div>
+          <div class="card-body">
+            <p>Welcome, {{ user.username }}!</p>
+
+            <ul class="list-group">
+              <li class="list-group-item">Username: {{ user.username }}</li>
+              <li class="list-group-item">Email: {{ user.email }}</li>
+            </ul>
+
+            <a href="{% url 'change_password' %}" class="btn btn-primary">Change Password</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}
