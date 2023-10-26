@@ -186,15 +186,7 @@ def verdictPage(request, problem_id):
 
         user = User.objects.get(username=request.user)
         previous_verdict = Submission.objects.filter(user=user.id, problem=problem, verdict="Accepted")
-        if len(previous_verdict)==0 and verdict=="Accepted":
-            user.total_solve_count += 1
-            if problem.difficulty == "Easy":
-                user.easy_solve_count += 1
-            elif problem.difficulty == "Medium":
-                user.medium_solve_count += 1
-            else:
-                user.tough_solve_count += 1
-            user.save()
+        
 
         submission.verdict = verdict
         submission.user_stdout = user_stdout
