@@ -23,10 +23,10 @@ FILES_DIR = os.path.abspath(os.path.join(BASE_DIR,'usercodes'))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lkdmgnkjanfdsfsvdsvsvbrfntymjuykurersgvjkdnoklangvjngokenq'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
