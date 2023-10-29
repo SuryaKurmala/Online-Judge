@@ -8,7 +8,7 @@ from .forms import RegistrationForm
 
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, UpdateProfileForm
+from .forms import RegistrationForm
 
 
 

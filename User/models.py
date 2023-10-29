@@ -1,19 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from OJ.models import Problem
-
-
-class User(AbstractUser):
-    email = models.EmailField(unique=True, default="")
-    full_name = models.CharField(max_length=50, default="")
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.full_name = self.first_name+" "+self.last_name
-
-    def __str__(self):
-        return self.username
-
+from django.contrib.auth.models import User
 
 class Submission(models.Model):
     LANGUAGES = (("C++", "C++"), ("C", "C"), ("Python", "Python"))

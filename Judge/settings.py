@@ -23,28 +23,27 @@ FILES_DIR = os.path.abspath(os.path.join(BASE_DIR,'usercodes'))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = 'lkdmgnkjanfdsfsvdsvsvbrfntymjuykurersgvjkdnoklangvjngokenq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'User',
-    'OJ',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'User',
+    'OJ',
     'froala_editor',
     'bootstrap5',
-    'crispy_forms',
 ]
 
 
@@ -93,7 +92,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-AUTH_USER_MODEL = 'User.User'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -127,12 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/images/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [BASE_DIR / 'static']
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+STATIC_URL = 'static/'
 
 
 # Default primary key field type

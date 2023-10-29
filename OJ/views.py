@@ -142,14 +142,6 @@ def verdictPage(request, problem_id):
             if user_stdout == testcase.output + '\n':
                 verdict = "Accepted"
 
-<<<<<<< HEAD
-=======
-
-        user = User.objects.get(username=request.user)
-        previous_verdict = Submission.objects.filter(user=user.id, problem=problem, verdict="Accepted")
-        
-
->>>>>>> 25ebc865f0099788f043d2cb9a90cc0784a5a68a
         submission.verdict = verdict
         submission.user_stdout = user_stdout
         submission.user_stderr = user_stderr
